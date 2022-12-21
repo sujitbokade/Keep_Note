@@ -6,18 +6,39 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+import GoogleSignIn
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        FirebaseApp.configure()
+       return true
     }
+    
+    func application(
+      _ app: UIApplication,
+      open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+      var handled: Bool
 
-    // MARK: UISceneSession Lifecycle
+      handled = GIDSignIn.sharedInstance.handle(url)
+      if handled {
+        return true
+      }
+
+      // Handle other custom URL types.
+
+      // If not handled by this app, return false.
+      return false
+    }
+    
+   // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
