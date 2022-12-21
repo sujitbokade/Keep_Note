@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         sideView.isHidden = true
-//        sideBar.backgroundColor = .white
+        sideBar.backgroundColor = .white
         isSideViewOpen = false
     }
     
@@ -43,11 +43,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             isSideViewOpen = true
             sideView.frame = CGRect(x: 0, y: 119, width: 0, height: 513)
             sideBar.frame = CGRect(x: 0, y: 0, width: 0, height: 505)
-
-            
-//            UIView.setAnimationDelegate(self)
-//            UIView.beginAnimations("TableAnimation", context: nil)
-            
             UIView.animate(withDuration: 0.3){ [self] in
                 self.sideView.frame = CGRect(x: 0, y: 119, width: 241, height: 513)
                 sideBar.frame = CGRect(x: 0, y: 0, width: 234, height: 505)
@@ -60,14 +55,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             isSideViewOpen = false
             sideView.frame = CGRect(x: 0, y: 119, width: 241, height: 513)
             sideBar.frame = CGRect(x: 0, y: 0, width: 234, height: 505)
-//            UIView.setAnimationDuration(0.3)
-            
             UIView.animate(withDuration: 0.3){
                 self.sideView.frame = CGRect(x: 0, y: 119, width: 0, height: 513)
                 self.sideBar.frame = CGRect(x: 0, y: 0, width: 0, height: 505)
             }
-//            UIView.setAnimationDelegate(self)
-//            UIView.beginAnimations("TableAnimation", context: nil)
             
          }
     }
