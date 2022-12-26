@@ -26,7 +26,6 @@ class LoginTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     @IBAction func btnSignUpClicked(_ sender: UIButton) {
@@ -49,11 +48,9 @@ class LoginTableViewController: UITableViewController {
                     if error != nil {
                         Alert.showAlertForLogin(on: self)
                     } else {
-                        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "NavigationC")
-                        
-                        self.view.window?.rootViewController = homeViewController
-                        self.view.window?.makeKeyAndVisible()
-                        
+                        if let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContainerController") as? ContainerController {
+                            self.navigationController?.pushViewController(homeViewController, animated: true)
+                        }
                     }
                 }
             }

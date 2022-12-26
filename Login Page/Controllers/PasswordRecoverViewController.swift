@@ -14,15 +14,15 @@ class PasswordRecoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     @IBAction func recoverButtonClicked(_ sender: UIButton) {
-        let email = userEmail.text
-        Auth.auth().sendPasswordReset(withEmail: "email") { (error) in
+        let email = userEmail.text!
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if error == nil {
-                print("")
+                print("Sent...")
+            } else {
+                print("Failed \(String(describing: error?.localizedDescription))")
             }
         }
     }

@@ -22,11 +22,16 @@
 		FA3B022D2948704800AC8A1D /* Login_PageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B022C2948704800AC8A1D /* Login_PageUITests.swift */; };
 		FA3B022F2948704800AC8A1D /* Login_PageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B022E2948704800AC8A1D /* Login_PageUITestsLaunchTests.swift */; };
 		FA3B023C2948728600AC8A1D /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B023B2948728600AC8A1D /* LoginTableViewController.swift */; };
-		FA49505B2950371F00B56F56 /* SideBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49505A2950371F00B56F56 /* SideBarTableViewCell.swift */; };
 		FA730F2B294B5741004E399C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730F2A294B5741004E399C /* ImagePicker.swift */; };
 		FA86F95F29533591002CA88A /* PasswordRecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86F95E29533591002CA88A /* PasswordRecoverViewController.swift */; };
+		FAB337842956EC4F00E31B7E /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB337832956EC4F00E31B7E /* ContainerController.swift */; };
+		FAB337862956ECD000E31B7E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB337852956ECD000E31B7E /* HomeController.swift */; };
+		FAB337882956ED0B00E31B7E /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB337872956ED0B00E31B7E /* MenuController.swift */; };
+		FAB3378A2956ED8C00E31B7E /* MenuOptionCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB337892956ED8C00E31B7E /* MenuOptionCellTableViewCell.swift */; };
+		FAB3378C2956EDF500E31B7E /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3378B2956EDF500E31B7E /* Protocol.swift */; };
+		FAB3378F2956EE5A00E31B7E /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3378E2956EE5A00E31B7E /* MenuOption.swift */; };
+		FACD0D25295739E8004A6055 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD0D24295739E7004A6055 /* NoteViewController.swift */; };
 		FAF69F47294C744F0065B244 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAF69F46294C744F0065B244 /* GoogleService-Info.plist */; };
-		FAF69F49294C7F280065B244 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF69F48294C7F280065B244 /* HomeViewController.swift */; };
 		FAFE6DED2949D3900074114E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE6DEC2949D3900074114E /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,11 +78,16 @@
 		FA3B022C2948704800AC8A1D /* Login_PageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_PageUITests.swift; sourceTree = "<group>"; };
 		FA3B022E2948704800AC8A1D /* Login_PageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_PageUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA3B023B2948728600AC8A1D /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
-		FA49505A2950371F00B56F56 /* SideBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableViewCell.swift; sourceTree = "<group>"; };
 		FA730F2A294B5741004E399C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FA86F95E29533591002CA88A /* PasswordRecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoverViewController.swift; sourceTree = "<group>"; };
+		FAB337832956EC4F00E31B7E /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		FAB337852956ECD000E31B7E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		FAB337872956ED0B00E31B7E /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		FAB337892956ED8C00E31B7E /* MenuOptionCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionCellTableViewCell.swift; sourceTree = "<group>"; };
+		FAB3378B2956EDF500E31B7E /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		FAB3378E2956EE5A00E31B7E /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
+		FACD0D24295739E7004A6055 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		FAF69F46294C744F0065B244 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FAF69F48294C7F280065B244 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FAFE6DEC2949D3900074114E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +145,7 @@
 		FA044092294C459D00CA9797 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAB3378B2956EDF500E31B7E /* Protocol.swift */,
 				FA3B020B2948704400AC8A1D /* AppDelegate.swift */,
 				FA3B020D2948704400AC8A1D /* SceneDelegate.swift */,
 				FA3B02162948704700AC8A1D /* LaunchScreen.storyboard */,
@@ -146,14 +157,16 @@
 			isa = PBXGroup;
 			children = (
 				FA3B020F2948704400AC8A1D /* ViewController.swift */,
+				FAB337832956EC4F00E31B7E /* ContainerController.swift */,
+				FAB337852956ECD000E31B7E /* HomeController.swift */,
+				FACD0D24295739E7004A6055 /* NoteViewController.swift */,
+				FAB337872956ED0B00E31B7E /* MenuController.swift */,
 				FA3B023B2948728600AC8A1D /* LoginTableViewController.swift */,
 				FAFE6DEC2949D3900074114E /* SignUpViewController.swift */,
-				FA49505A2950371F00B56F56 /* SideBarTableViewCell.swift */,
-				FAF69F48294C7F280065B244 /* HomeViewController.swift */,
+				FA86F95E29533591002CA88A /* PasswordRecoverViewController.swift */,
 				FA0BDBC42949880D0084A3A3 /* String.swift */,
 				FA730F2A294B5741004E399C /* ImagePicker.swift */,
 				FA0BDBC2294987140084A3A3 /* Alert.swift */,
-				FA86F95E29533591002CA88A /* PasswordRecoverViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -161,7 +174,7 @@
 		FA044094294C465300CA9797 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA3B02112948704400AC8A1D /* Main.storyboard */,
+				FAB337892956ED8C00E31B7E /* MenuOptionCellTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,10 +204,12 @@
 		FA3B020A2948704400AC8A1D /* Login Page */ = {
 			isa = PBXGroup;
 			children = (
+				FAB3378D2956EE3F00E31B7E /* Model */,
 				FA044094294C465300CA9797 /* View */,
 				FA044093294C460400CA9797 /* Controllers */,
 				FA044092294C459D00CA9797 /* Supporting Files */,
 				FA3B02142948704700AC8A1D /* Assets.xcassets */,
+				FA3B02112948704400AC8A1D /* Main.storyboard */,
 				FA3B02192948704700AC8A1D /* Info.plist */,
 				FAF69F46294C744F0065B244 /* GoogleService-Info.plist */,
 			);
@@ -216,6 +231,14 @@
 				FA3B022E2948704800AC8A1D /* Login_PageUITestsLaunchTests.swift */,
 			);
 			path = "Login PageUITests";
+			sourceTree = "<group>";
+		};
+		FAB3378D2956EE3F00E31B7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3378E2956EE5A00E31B7E /* MenuOption.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +325,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA3B02032948704300AC8A1D /* Build configuration list for PBXProject "Login Page" */;
+			buildConfigurationList = FA3B02032948704300AC8A1D /* Build configuration list for PBXProject "Keep Note" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -459,16 +482,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3B02102948704400AC8A1D /* ViewController.swift in Sources */,
+				FAB337842956EC4F00E31B7E /* ContainerController.swift in Sources */,
+				FAB337862956ECD000E31B7E /* HomeController.swift in Sources */,
+				FAB3378C2956EDF500E31B7E /* Protocol.swift in Sources */,
 				FAFE6DED2949D3900074114E /* SignUpViewController.swift in Sources */,
-				FA49505B2950371F00B56F56 /* SideBarTableViewCell.swift in Sources */,
+				FAB337882956ED0B00E31B7E /* MenuController.swift in Sources */,
 				FA3B023C2948728600AC8A1D /* LoginTableViewController.swift in Sources */,
 				FA3B020C2948704400AC8A1D /* AppDelegate.swift in Sources */,
+				FACD0D25295739E8004A6055 /* NoteViewController.swift in Sources */,
 				FA0BDBC3294987140084A3A3 /* Alert.swift in Sources */,
 				FA86F95F29533591002CA88A /* PasswordRecoverViewController.swift in Sources */,
-				FAF69F49294C7F280065B244 /* HomeViewController.swift in Sources */,
 				FA730F2B294B5741004E399C /* ImagePicker.swift in Sources */,
 				FA0BDBC52949880D0084A3A3 /* String.swift in Sources */,
 				FA3B020E2948704400AC8A1D /* SceneDelegate.swift in Sources */,
+				FAB3378F2956EE5A00E31B7E /* MenuOption.swift in Sources */,
+				FAB3378A2956ED8C00E31B7E /* MenuOptionCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,7 +807,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA3B02032948704300AC8A1D /* Build configuration list for PBXProject "Login Page" */ = {
+		FA3B02032948704300AC8A1D /* Build configuration list for PBXProject "Keep Note" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA3B02302948704800AC8A1D /* Debug */,
