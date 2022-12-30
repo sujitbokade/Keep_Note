@@ -14,7 +14,6 @@ class ContainerController: UIViewController {
     var centreController: UIViewController!
     var isExpanded = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHomeController()
@@ -74,7 +73,7 @@ class ContainerController: UIViewController {
         case .Notes:
             print("Notes")
         case .Remainders:
-            print("Remainder")
+            print("Remainder")          
         case .Create_label:
             print("Label")
         case .Archive:
@@ -86,10 +85,10 @@ class ContainerController: UIViewController {
         case .Logout:
             print("LogOut")
             do {
-               try Auth.auth().signOut()
+                try Auth.auth().signOut()
                 let scene = UIApplication.shared.connectedScenes.first
                 if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
-                  let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginTableViewController")
                     let nav = UINavigationController(rootViewController: loginViewController)
                     sd.window?.rootViewController = nav
@@ -98,7 +97,6 @@ class ContainerController: UIViewController {
             } catch {
                 print("error \(String(describing: error.localizedDescription))")
             }
-           
         }
     }
     
@@ -107,7 +105,6 @@ class ContainerController: UIViewController {
             self.setNeedsStatusBarAppearanceUpdate()
         }, completion: nil)
     }
-    
 }
 
 extension ContainerController: HomeControllerDelegate {
@@ -118,6 +115,5 @@ extension ContainerController: HomeControllerDelegate {
         isExpanded = !isExpanded
         animatePanel(shouldExpand: isExpanded, menuOption: menuOption)
     }
-    
 }
 

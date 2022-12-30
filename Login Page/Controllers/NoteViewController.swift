@@ -39,7 +39,7 @@ class NoteViewController: UIViewController {
                 textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
                 textField.widthAnchor.constraint(equalToConstant: 300).isActive = true
                 textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-                textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+                textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
                 textField.becomeFirstResponder()
                 
                 view.addSubview(noteField)
@@ -59,9 +59,7 @@ class NoteViewController: UIViewController {
     @objc func handleSaveButton(){
 
            if let inputTitle = textField.text , let inputNote = noteField.text{
-               
-            //   let newData = Note(title: inputTitle, note: inputNote)
-               
+
                var ref:DocumentReference? = nil
                
                let documentRef = self.db.collection("USER").document()
@@ -84,12 +82,7 @@ class NoteViewController: UIViewController {
               }
            }
        
-       
        @objc func handleCancelButton(){
            self.dismiss(animated: true,completion: nil)
        }
-
-    
-
-
 }

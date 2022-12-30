@@ -21,27 +21,22 @@ case Logout
         case .Notes: return "Notes"
         case .Remainders: return "Remainders"
         case .Create_label: return "Create_label"
-        case .Archive:
-            return "Archive"
-        case .Trash:
-            return "Trash"
-        case .Setting:
-            return "Setting"
-        case .Logout:
-            return "LogOut"
+        case .Archive: return "Archive"
+        case .Trash: return "Trash"
+        case .Setting: return "Setting"
+        case .Logout: return "LogOut"
         }
-        
     }
+    
     var image: UIImage {
         switch self {
-        case .Notes: return UIImage(named: "") ?? UIImage()
-        case .Remainders: return UIImage(named: "remainder") ?? UIImage()
-        case .Create_label: return UIImage(named: "") ?? UIImage()
-        case .Archive: return UIImage(named: "Archive") ?? UIImage()
-        case .Trash: return UIImage(named: "trash") ?? UIImage()
-        case .Setting: return UIImage(named: "setting") ?? UIImage()
+        case .Notes: return UIImage(systemName: "lightbulb.fill") ?? UIImage()
+        case .Remainders: return UIImage(systemName: "bell.fill") ?? UIImage()
+        case .Create_label: return UIImage(systemName: "plus") ?? UIImage()
+        case .Archive: return UIImage(systemName: "square.and.arrow.down") ?? UIImage()
+        case .Trash: return UIImage(systemName: "trash.fill") ?? UIImage()
+        case .Setting: return UIImage(systemName: "seal.fill") ?? UIImage()
         case .Logout: return UIImage(named: "Logout") ?? UIImage()
-           
         }
     }
 }
