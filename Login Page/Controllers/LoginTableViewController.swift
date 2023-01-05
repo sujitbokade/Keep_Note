@@ -88,9 +88,7 @@ class LoginTableViewController: UITableViewController {
                     self.view.window?.makeKeyAndVisible()
                 }
             }
-            
         }
-        
     }
     
     @IBAction func btnEyeClicked(_ sender: UIButton) {
@@ -102,7 +100,6 @@ class LoginTableViewController: UITableViewController {
         UIView.animate(withDuration: 0.4){[weak self] in
             guard let self = self else{return}
             self.passEyeButton.alpha = 1
-            
         }
     }
 }

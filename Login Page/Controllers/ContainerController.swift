@@ -71,9 +71,13 @@ class ContainerController: UIViewController {
     func didSelectMenuOption(menuOption: MenuOption) {
         switch menuOption {
         case .Notes:
-            print("Notes")
+           print("Notes")
         case .Remainders:
-            print("Remainder")          
+            print("Remainder")
+            let container = RemainderViewController()
+            let newVC = UINavigationController(rootViewController: container)
+            present(newVC, animated: true)
+            
         case .Create_label:
             print("Label")
         case .Archive:

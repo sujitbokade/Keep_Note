@@ -147,7 +147,6 @@ class HomeController: UIViewController, UISearchBarDelegate {
                 print("updating notes \(self.updatedCount)")
             }
             self.noteArray.append(contentsOf: listNote)
-            self.collectionView.reloadData()
         }
     }
     
@@ -214,69 +213,6 @@ class HomeController: UIViewController, UISearchBarDelegate {
         }
         self.collectionView.reloadData()
     }
-    
-//    func loadData(){
-//        db.collection("USER").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    let noteObject = document.data()
-//                    let first = noteObject["noteTitle"] as? String ?? ""
-//                    let second = noteObject["noteDescription"] as? String ?? ""
-//                    let id = noteObject["id"] as? String ?? ""
-//                    let date = noteObject["date"] as? Date
-//                    let newList = Note(title: first , note: second, id: id, date: date)
-//                    self.noteArray.append(newList)
-//
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-//                self.collectionView.reloadData()
-//            }
-//        }
-//    }
-    
-//    func checkForUpdate(){
-//        db.collection("USER").addSnapshotListener { [self] querySnapdhot, error in
-//            guard let snapshot = querySnapdhot else {return}
-//            snapshot.documentChanges.forEach { diff in
-//
-//                switch (diff.type){
-//
-//                case .added:
-//                    let noteObject = diff.document.data()
-//                    let first = noteObject["noteTitle"] as? String ?? ""
-//                    let second = noteObject["noteDescription"] as? String ?? ""
-//                    let id = noteObject["id"] as? String ?? ""
-//                    let date = noteObject["date"] as? Date
-//                    let newList = Note(title: first , note: second, id: id, date: date)
-//                    self.noteArray.append(newList)
-//                    self.collectionView.reloadData()
-//                    print("case")
-//
-//                case .modified:
-//
-//                    print("updated successfuly")
-//
-//                case .removed:
-//                    self.db.collection("USER").document("id").delete(){ err in
-//                        if let err = err {
-//                            print("Error removing document: \(err)")
-//                        } else {
-//                            print("Document successfully removed!")
-//                        }
-//                    }
-//                    self.collectionView.reloadData()
-//                }
-//
-//                if diff.type == .modified {
-//                    DispatchQueue.main.async {
-//                        self.collectionView.reloadData()
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
 
 extension HomeController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -340,12 +276,12 @@ extension HomeController: UICollectionViewDelegate,UICollectionViewDataSource, U
         present(UINavigationController(rootViewController: container), animated: true)
         
         container.completion = { noteid in
-            self.db.collection("USER").document("A4ZEUt3IWzKrsz6TZ9Ae").delete() { (err) in
+            self.db.collection("USER").document(container.idField).delete() { (err) in
                 if  err != nil {
                     print("Error removing document: \(String(describing: err))")
                 } else {
-                    
                     print("Document successfully removed!")
+                    self.dismiss(animated: true, completion: nil)
                     self.collectionView.reloadData()
                 }
             }
@@ -355,8 +291,11 @@ extension HomeController: UICollectionViewDelegate,UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if indexPath.row == noteArray.count-1{
-            
             gettingMoreData()
         }
+        self.perform(#selector(loadTable), with: nil, afterDelay: 0.6)
+    }
+    @objc func loadTable() {
+        self.collectionView.reloadData()
     }
 }

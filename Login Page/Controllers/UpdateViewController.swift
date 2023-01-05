@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseCore
 
 class UpdateViewController: UIViewController {
+   
     
     let textField: UITextField = {
         let noteTitle = UITextField()
@@ -73,8 +74,7 @@ class UpdateViewController: UIViewController {
     }
     
     @objc func handleUpdateButton(){
-        updateData()
-        
+        updateData()        
         self.dismiss(animated: true,completion: nil)
     }
     
@@ -87,26 +87,23 @@ class UpdateViewController: UIViewController {
         
     }
     
-    func updateData(){
+    func updateData() {
         
         if let titleField = textField.text, let descField = noteField.text {
-            
-            let newDocumnetId = db.collection("USER").document()
+           
             let userData = [
                 "noteTitle": titleField,
                 "noteDescription": descField,
                 "id": idField!
             ] as [String : Any]
             
-            db.collection("USER").document("AReQaBrU1QP5j3bjNaj6").updateData(userData)
+            db.collection("USER").document(idField).updateData(userData)
             { (error) in
                 if error != nil{
                     print("Erroe \(String(describing: error?.localizedDescription))")
                 }
                 else {
                     print("succesfully updated")
-                    
-                    
                 }
             }
         }
