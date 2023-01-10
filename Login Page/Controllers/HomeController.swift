@@ -11,6 +11,7 @@ import FirebaseFirestore
 class HomeController: UIViewController, UISearchBarDelegate {
     
     var delegate: HomeControllerDelegate?
+    var ref = RemainderViewController()
     var addButton: UIBarButtonItem!
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -25,6 +26,7 @@ class HomeController: UIViewController, UISearchBarDelegate {
     let db = Firestore.firestore()
     var noteArray = [Note]()
     lazy var filteredNotes = [Note]()
+    
         
     var updatedCount = 10
     var lastDocument: QueryDocumentSnapshot?
@@ -99,7 +101,7 @@ class HomeController: UIViewController, UISearchBarDelegate {
     }
     
     func loadingInitialData(){
-        let initialQuary = db.collection("USER")
+        let initialQuary = db.collection("Notes")
             .order(by: "noteTitle")
             .limit(to: 10)
         initialQuary.getDocuments { quarySnapshot, error in
@@ -115,7 +117,8 @@ class HomeController: UIViewController, UISearchBarDelegate {
                 let second = noteObject["noteDescription"] as? String ?? ""
                 let id = noteObject["id"] as? String ?? ""
                 let date = noteObject["date"] as? Date
-                let note = Note(title: first , note: second, id: id, date: date)
+                let isRemainder = noteObject["isRemaider"] as? Bool
+                let note = Note(title: first , note: second, id: id, date: date, isRemainder: false)
                 self.noteArray.append(note)
             }
             self.collectionView.reloadData()
@@ -124,7 +127,7 @@ class HomeController: UIViewController, UISearchBarDelegate {
     
     func gettingMoreData(){
         guard let lastDocument = lastDocument else {return}
-        let moreQuary = db.collection("USER")
+        let moreQuary = db.collection("Notes")
             .order(by: "noteTitle").start(afterDocument: lastDocument)
             .limit(to: 10)
         moreQuary.getDocuments { quarySnapshot, error in
@@ -140,7 +143,7 @@ class HomeController: UIViewController, UISearchBarDelegate {
                 let second = noteObject["noteDescription"] as? String ?? ""
                 let id = noteObject["id"] as? String ?? ""
                 let date = noteObject["date"] as? Date
-                let note = Note(title: first , note: second, id: id, date: date)
+                let note = Note(title: first , note: second, id: id, date: date, isRemainder: false)
                 
                 listNote.append(note)
                 self.updatedCount = self.updatedCount + 1
@@ -265,6 +268,7 @@ extension HomeController: UICollectionViewDelegate,UICollectionViewDataSource, U
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("Selected index \(indexPath.section) and row: \(indexPath.row)")
@@ -273,18 +277,21 @@ extension HomeController: UICollectionViewDelegate,UICollectionViewDataSource, U
         container.field2 = noteArray[indexPath.row].note
         container.idField = noteArray[indexPath.row].id
         
+        
         present(UINavigationController(rootViewController: container), animated: true)
         
         container.completion = { noteid in
-            self.db.collection("USER").document(container.idField).delete() { (err) in
+            self.db.collection("Notes").document(container.idField).delete() { (err) in
                 if  err != nil {
                     print("Error removing document: \(String(describing: err))")
                 } else {
                     print("Document successfully removed!")
+                   
                     self.dismiss(animated: true, completion: nil)
-                    self.collectionView.reloadData()
+                    
                 }
             }
+            self.collectionView.reloadData()
         }
     }
     

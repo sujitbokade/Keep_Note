@@ -30,6 +30,7 @@ class NoteViewController: UIViewController {
     }()
     
     let db = Firestore.firestore()
+    let datePicker: UIDatePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +61,13 @@ class NoteViewController: UIViewController {
         
         if let inputTitle = textField.text , let inputNote = noteField.text {
         
-            let noteRef = self.db.collection("USER").document()
+            let noteRef = self.db.collection("Notes").document()
             let userData:[String : Any] = [
                 "noteTitle": inputTitle,
                 "noteDescription": inputNote,
                 "id": noteRef.documentID,
-                "date": Timestamp(date: Date())
+                "date": Timestamp(date: Date()),
+                "isRemainder": false
             ]
             
             noteRef.setData(userData) {

@@ -81,7 +81,7 @@ class UpdateViewController: UIViewController {
     @objc func deleteItem(){
         
         do {
-            completion!(idField)
+             completion!(idField)
         }
         dismiss(animated: true,completion: nil)
         
@@ -97,7 +97,7 @@ class UpdateViewController: UIViewController {
                 "id": idField!
             ] as [String : Any]
             
-            db.collection("USER").document(idField).updateData(userData)
+            db.collection("Notes").document(idField).updateData(userData)
             { (error) in
                 if error != nil{
                     print("Erroe \(String(describing: error?.localizedDescription))")
@@ -107,5 +107,6 @@ class UpdateViewController: UIViewController {
                 }
             }
         }
+    
     }
 }

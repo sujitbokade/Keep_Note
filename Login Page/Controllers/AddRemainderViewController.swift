@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AddRemainderViewController: UIViewController, UITextFieldDelegate {
     
@@ -14,6 +15,9 @@ class AddRemainderViewController: UIViewController, UITextFieldDelegate {
     let datePicker: UIDatePicker = UIDatePicker()
     
     public var complition: ((String, String, Date) -> Void)?
+   
+    let remainderRef = Firestore.firestore().collection("Notes").document()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleField.delegate = self
@@ -29,11 +33,29 @@ class AddRemainderViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func didTapSaveButton(){
+       
         if let titleField = titleField.text, !titleField.isEmpty,
            let descText = bodyField.text, !descText.isEmpty {
-            let targetDate = datePicker.date
-            complition?(titleField,descText,targetDate)
+            let userData:[String : Any] = [
+                "noteTitle": titleField,
+                "noteDescription": descText,
+                "id": remainderRef.documentID,
+                "date": Timestamp(date: Date()),
+                "isRemaider": true  
+            ]
             
+            print(datePicker.date)
+            remainderRef.setData(userData) {
+                (error:Error?) in
+                if let error = error {
+                    print("\(error.localizedDescription)")
+                } else {
+                    print("Remainder is created with id: \(String(describing: self.remainderRef.documentID))")
+                    let targetDate = self.datePicker.date
+                    self.complition?(titleField,descText,targetDate)
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         }
     }
     @objc func cancleButton(){
@@ -62,7 +84,7 @@ class AddRemainderViewController: UIViewController, UITextFieldDelegate {
         }
 
        func displayDatePicker(){
-           datePicker.frame = CGRect(x: 10, y: 260, width: self.view.frame.width, height: 100)
+           datePicker.frame = CGRect(x: 10, y: 260, width: self.view.frame.width, height: 200)
            datePicker.timeZone = NSTimeZone.local
            datePicker.backgroundColor = UIColor.white
            self.view.addSubview(datePicker)

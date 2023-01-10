@@ -12,11 +12,13 @@ struct Note{
     var note:String?
     var id:String
     var date: Date?
+    var isRemainder: Bool
     
-    init(title: String? , note: String? , id:String, date:Date?) {
+    init(title: String? , note: String? , id:String, date:Date?, isRemainder: Bool ) {
         self.title = title
         self.note = note
         self.id = id
         self.date = date
+        self.isRemainder = isRemainder
     }
 }

@@ -26,9 +26,11 @@
 		FA48A7B02966D647007DE5C6 /* AddRemainderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48A7AF2966D647007DE5C6 /* AddRemainderViewController.swift */; };
 		FA730F2B294B5741004E399C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730F2A294B5741004E399C /* ImagePicker.swift */; };
 		FA86F95F29533591002CA88A /* PasswordRecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86F95E29533591002CA88A /* PasswordRecoverViewController.swift */; };
+		FA8A0B5C296C341B00AC8FD8 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A0B5B296C341B00AC8FD8 /* ArchiveViewController.swift */; };
 		FA8D495F295B61BE008CFBEA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D495E295B61BE008CFBEA /* Note.swift */; };
 		FA8D4961295B659A008CFBEA /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D4960295B659A008CFBEA /* PhotoCollectionViewCell.swift */; };
 		FA8D4963295B6772008CFBEA /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D4962295B6772008CFBEA /* UpdateViewController.swift */; };
+		FA8F59B8296D2E8400B0F7B7 /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F59B7296D2E8400B0F7B7 /* TrashViewController.swift */; };
 		FAB337842956EC4F00E31B7E /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB337832956EC4F00E31B7E /* ContainerController.swift */; };
 		FAB337862956ECD000E31B7E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB337852956ECD000E31B7E /* HomeController.swift */; };
 		FAB337882956ED0B00E31B7E /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB337872956ED0B00E31B7E /* MenuController.swift */; };
@@ -87,9 +89,11 @@
 		FA48A7AF2966D647007DE5C6 /* AddRemainderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderViewController.swift; sourceTree = "<group>"; };
 		FA730F2A294B5741004E399C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FA86F95E29533591002CA88A /* PasswordRecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoverViewController.swift; sourceTree = "<group>"; };
+		FA8A0B5B296C341B00AC8FD8 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		FA8D495E295B61BE008CFBEA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		FA8D4960295B659A008CFBEA /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA8D4962295B6772008CFBEA /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
+		FA8F59B7296D2E8400B0F7B7 /* TrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
 		FAB337832956EC4F00E31B7E /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		FAB337852956ECD000E31B7E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		FAB337872956ED0B00E31B7E /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
@@ -169,13 +173,15 @@
 				FA3B020F2948704400AC8A1D /* ViewController.swift */,
 				FAB337832956EC4F00E31B7E /* ContainerController.swift */,
 				FAB337852956ECD000E31B7E /* HomeController.swift */,
-				FACD0D24295739E7004A6055 /* NoteViewController.swift */,
 				FA8D4962295B6772008CFBEA /* UpdateViewController.swift */,
+				FACD0D24295739E7004A6055 /* NoteViewController.swift */,
 				FAB337872956ED0B00E31B7E /* MenuController.swift */,
 				FA3B023B2948728600AC8A1D /* LoginTableViewController.swift */,
 				FAFE6DEC2949D3900074114E /* SignUpViewController.swift */,
+				FA8A0B5B296C341B00AC8FD8 /* ArchiveViewController.swift */,
 				FA48A7AD2966D090007DE5C6 /* RemainderViewController.swift */,
 				FA48A7AF2966D647007DE5C6 /* AddRemainderViewController.swift */,
+				FA8F59B7296D2E8400B0F7B7 /* TrashViewController.swift */,
 				FA86F95E29533591002CA88A /* PasswordRecoverViewController.swift */,
 				FA0BDBC42949880D0084A3A3 /* String.swift */,
 				FA730F2A294B5741004E399C /* ImagePicker.swift */,
@@ -508,6 +514,7 @@
 				FAB337882956ED0B00E31B7E /* MenuController.swift in Sources */,
 				FA3B023C2948728600AC8A1D /* LoginTableViewController.swift in Sources */,
 				FA3B020C2948704400AC8A1D /* AppDelegate.swift in Sources */,
+				FA8A0B5C296C341B00AC8FD8 /* ArchiveViewController.swift in Sources */,
 				FA8D4963295B6772008CFBEA /* UpdateViewController.swift in Sources */,
 				FACD0D25295739E8004A6055 /* NoteViewController.swift in Sources */,
 				FA0BDBC3294987140084A3A3 /* Alert.swift in Sources */,
@@ -515,6 +522,7 @@
 				FA730F2B294B5741004E399C /* ImagePicker.swift in Sources */,
 				FA0BDBC52949880D0084A3A3 /* String.swift in Sources */,
 				FA3B020E2948704400AC8A1D /* SceneDelegate.swift in Sources */,
+				FA8F59B8296D2E8400B0F7B7 /* TrashViewController.swift in Sources */,
 				FAB3378F2956EE5A00E31B7E /* MenuOption.swift in Sources */,
 				FAB3378A2956ED8C00E31B7E /* MenuOptionCellTableViewCell.swift in Sources */,
 			);

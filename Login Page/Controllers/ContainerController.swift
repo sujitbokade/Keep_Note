@@ -80,10 +80,18 @@ class ContainerController: UIViewController {
             
         case .Create_label:
             print("Label")
+        
         case .Archive:
-            print("Archive")
+            let container = ArchiveViewController()
+            let newVC = UINavigationController(rootViewController: container)
+            present(newVC, animated: true)
+        
         case .Trash:
             print("Trash")
+            let container = TrashViewController()
+            let newVC = UINavigationController(rootViewController: container)
+            present(newVC, animated: true)
+            
         case .Setting:
             print("Setting")
         case .Logout:
