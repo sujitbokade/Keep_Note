@@ -15,9 +15,6 @@ class RemainderViewController: UIViewController {
     let db = Firestore.firestore()
     var lastDocument: QueryDocumentSnapshot?
     
-   
-    var remainderID: String = ""
-    
     let tableView: UITableView = {
         let table = UITableView()
         table.register(SwipeTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -37,7 +34,8 @@ class RemainderViewController: UIViewController {
         
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
-       
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(didTapCancel) )
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,9 +55,11 @@ class RemainderViewController: UIViewController {
         container.complition = { title, body , date in
             DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)
-                let new = Note(title: title, note: body, id: "id", date: date, isRemainder: false)
-                self.noteArray.append(new)
+//                let new = Note(title: title, note: body, id: , date: date, isRemainder: false)
+//                self.noteArray.append(new)
+                self.loadingInitialData()
                 self.tableView.reloadData()
+                
                 
                 
                 let content = UNMutableNotificationContent()
@@ -80,11 +80,15 @@ class RemainderViewController: UIViewController {
         }
     }
     
+    @objc func didTapCancel() {
+        self.dismiss(animated: true,completion: nil)
+    }
+    
     func loadingInitialData(){
         
-       print("Load data")
+        print("Load data")
         noteArray.removeAll()
-        let initialQuary = db.collection("Notes").whereField("isRemaider", isEqualTo: true)
+        let initialQuary = db.collection("Notes").whereField("isRemaider", isEqualTo: true).whereField("isDeleted", isEqualTo: false)
             .order(by: "noteTitle")
             .limit(to: 10)
         initialQuary.getDocuments { quarySnapshot, error in
@@ -92,7 +96,7 @@ class RemainderViewController: UIViewController {
                 print("Error retreving cities: \(error.debugDescription)")
                 return
             }
-          
+            
             self.lastDocument = snapshot.documents.last
             print(" Count \(snapshot.documents.count)")
             snapshot.documents.forEach { document in
@@ -102,7 +106,7 @@ class RemainderViewController: UIViewController {
                 let second = noteObject["noteDescription"] as? String ?? ""
                 let id = noteObject["id"] as? String ?? ""
                 let date = noteObject["date"] as? Date
-                let isRemainder = noteObject["isRemaider"] as? Bool
+                _ = noteObject["isRemaider"] as? Bool
                 let note = Note(title: first , note: second, id: id, date: date, isRemainder: false)
                 self.noteArray.append(note)
             }
@@ -133,39 +137,43 @@ extension RemainderViewController: UITableViewDelegate, UITableViewDataSource, S
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
-        remainderID = self.noteArray[indexPath.row].id
-       
+      
+        
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { [self] action, indexPath in
+            for note in self.noteArray {
+                print(note.id)
+            }
+            self.updateModel(noteId: self.noteArray[indexPath.row].id)
             
-            self.updateModel(at: indexPath)
-          
+            
         }
         return [deleteAction]
     }
     
     
-    func updateModel(at indexPath: IndexPath){
-        
+    func updateModel(noteId: String){
+        print("Remainder ID \(String(describing: noteId))")
         print("Update Model")
-            let userData:[String : Any] = [
-                "isRemaider": false,
-                "id": remainderID
-            ]
+        let userData:[String : Any] = [
+            "isDeleted": true,
             
-        db.collection("Notes").document(remainderID).updateData(userData)
-            { (error) in
-                if error != nil{
-                    print("Remainder ID \(String(describing: self.remainderID))")
-                    print("Erroe \(String(describing: error?.localizedDescription))")
-                }
-                else {
-                    print("succesfully updated")
-                    self.dismiss(animated: true,completion: nil)
-                }
+        ]
+        
+        db.collection("Notes").document(noteId).updateData(userData)
+        { (error) in
+            if error != nil{
+                print("Remainder ID \(String(describing: noteId))")
+                print("Erroe \(String(describing: error?.localizedDescription))")
+            }
+            else {
+                print("succesfully updated")
+                self.loadingInitialData()
             }
         }
-        
+        print("End Funct")
     }
+    
+}
 
 
 

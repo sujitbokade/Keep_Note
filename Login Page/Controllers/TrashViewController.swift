@@ -47,7 +47,7 @@ class TrashViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func loadingInitialData(){
        print("Load data")
         noteArray.removeAll()
-        let initialQuary = db.collection("Notes").whereField("isRemaider", isEqualTo: false)
+        let initialQuary = db.collection("Notes").whereField("isDeleted", isEqualTo: true)
             .order(by: "noteTitle")
             .limit(to: 10)
         initialQuary.getDocuments { quarySnapshot, error in
@@ -65,7 +65,7 @@ class TrashViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let second = noteObject["noteDescription"] as? String ?? ""
                 let id = noteObject["id"] as? String ?? ""
                 let date = noteObject["date"] as? Date
-                let isRemainder = noteObject["isRemaider"] as? Bool
+                _ = noteObject["isRemaider"] as? Bool
                 let note = Note(title: first , note: second, id: id, date: date, isRemainder: false)
                 self.noteArray.append(note)
             }

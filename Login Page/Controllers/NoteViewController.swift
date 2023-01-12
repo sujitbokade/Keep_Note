@@ -67,7 +67,8 @@ class NoteViewController: UIViewController {
                 "noteDescription": inputNote,
                 "id": noteRef.documentID,
                 "date": Timestamp(date: Date()),
-                "isRemainder": false
+                "isRemainder": false,
+                "isDeleted": false
             ]
             
             noteRef.setData(userData) {

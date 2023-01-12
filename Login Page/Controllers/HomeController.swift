@@ -101,7 +101,8 @@ class HomeController: UIViewController, UISearchBarDelegate {
     }
     
     func loadingInitialData(){
-        let initialQuary = db.collection("Notes")
+        noteArray.removeAll()
+        let initialQuary = db.collection("Notes").whereField("isDeleted", isEqualTo: false)
             .order(by: "noteTitle")
             .limit(to: 10)
         initialQuary.getDocuments { quarySnapshot, error in
@@ -109,7 +110,7 @@ class HomeController: UIViewController, UISearchBarDelegate {
                 print("Error retreving cities: \(error.debugDescription)")
                 return
             }
-            _ = [Note]()
+            
             self.lastDocument = snapshot.documents.last
             snapshot.documents.forEach { document in
                 let noteObject = document.data()
@@ -117,7 +118,7 @@ class HomeController: UIViewController, UISearchBarDelegate {
                 let second = noteObject["noteDescription"] as? String ?? ""
                 let id = noteObject["id"] as? String ?? ""
                 let date = noteObject["date"] as? Date
-                let isRemainder = noteObject["isRemaider"] as? Bool
+                _ = noteObject["isRemaider"] as? Bool
                 let note = Note(title: first , note: second, id: id, date: date, isRemainder: false)
                 self.noteArray.append(note)
             }
@@ -127,7 +128,7 @@ class HomeController: UIViewController, UISearchBarDelegate {
     
     func gettingMoreData(){
         guard let lastDocument = lastDocument else {return}
-        let moreQuary = db.collection("Notes")
+        let moreQuary = db.collection("Notes").whereField("isDeleted", isEqualTo: false)
             .order(by: "noteTitle").start(afterDocument: lastDocument)
             .limit(to: 10)
         moreQuary.getDocuments { quarySnapshot, error in

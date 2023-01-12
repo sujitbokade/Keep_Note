@@ -41,7 +41,9 @@ class AddRemainderViewController: UIViewController, UITextFieldDelegate {
                 "noteDescription": descText,
                 "id": remainderRef.documentID,
                 "date": Timestamp(date: Date()),
-                "isRemaider": true  
+                "isRemaider": true,
+                "isDeleted": false
+                
             ]
             
             print(datePicker.date)
